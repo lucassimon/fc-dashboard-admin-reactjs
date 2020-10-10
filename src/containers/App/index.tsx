@@ -3,7 +3,7 @@ import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Link from "@material-ui/core/Link";
-import ProTip from "./ProTip";
+import ProTip from "../../components/ProTip";
 
 function Copyright() {
   return (
@@ -23,7 +23,7 @@ export default function App() {
     <Container maxWidth="sm">
       <Box my={4}>
         <Typography variant="h4" component="h1" gutterBottom>
-          Create React App v4-beta example
+          Create React App v4-beta example {process.env.REACT_APP_API_BASE_URL}
         </Typography>
         <ProTip />
         <Copyright />
