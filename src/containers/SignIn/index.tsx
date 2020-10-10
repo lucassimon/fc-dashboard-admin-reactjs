@@ -28,7 +28,7 @@ export const SignIn = () => {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Entrar
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
@@ -69,12 +69,7 @@ export const SignIn = () => {
           <Grid container>
             <Grid item xs>
               <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
+                Esqueceu a senha?
               </Link>
             </Grid>
           </Grid>

@@ -1,7 +1,6 @@
 // @flow
-import { Box, Container, Grid, Paper } from '@material-ui/core';
+import { Grid, Paper } from '@material-ui/core';
 import React, { FC } from 'react';
-import { Copyright } from '../../components/Copyright';
 import { Page } from '../../components/Page';
 import { useStyles } from './styles';
 interface Props {};
