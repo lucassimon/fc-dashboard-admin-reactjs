@@ -1,33 +1,19 @@
 import React from "react";
-import Container from "@material-ui/core/Container";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import Link from "@material-ui/core/Link";
-import ProTip from "../../components/ProTip";
+import { Switch, Route } from 'react-router-dom';
+import { Error404 } from '../Error404';
+import { SignIn } from '../SignIn';
+import { SignUp } from '../SignUp';
+import { Dashboard } from '../Dashboard';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
 
 export default function App() {
   return (
-    <Container maxWidth="sm">
-      <Box my={4}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Create React App v4-beta example {process.env.REACT_APP_API_BASE_URL}
-        </Typography>
-        <ProTip />
-        <Copyright />
-      </Box>
-    </Container>
+    <Switch>
+      <Route exact path="/" component={SignIn} />
+      <Route exact path="/sign-up" component={SignUp} />
+      <Route path="/dashboard" component={Dashboard} />
+      <Route path="*" component={Error404} />
+    </Switch>
+
   );
 }
