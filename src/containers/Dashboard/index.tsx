@@ -18,12 +18,12 @@ export const Dashboard: FC<Props> = () => {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Switch>
-        <Route
-          exact
-          path={`${match.url}`}
-          component={Main}
-        />
-      </Switch>
+          <Route
+            exact
+            path={`${match.url}`}
+            component={Main}
+          />
+        </Switch>
       </main>
     </div>
   );

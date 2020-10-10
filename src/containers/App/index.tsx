@@ -14,6 +14,5 @@ export default function App() {
       <Route path="/dashboard" component={Dashboard} />
       <Route path="*" component={Error404} />
     </Switch>
-
   );
 }

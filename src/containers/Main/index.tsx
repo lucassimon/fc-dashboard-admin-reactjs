@@ -2,13 +2,14 @@
 import { Box, Container, Grid, Paper } from '@material-ui/core';
 import React, { FC } from 'react';
 import { Copyright } from '../../components/Copyright';
+import { Page } from '../../components/Page';
 import { useStyles } from './styles';
 interface Props {};
 
 export const Main: FC<Props> = () => {
   const classes = useStyles()
   return (
-    <Container maxWidth="lg" className={classes.container}>
+    <Page title="Dashboard">
       <Grid container spacing={3}>
         {/* Chart */}
         <Grid item xs={12} md={8} lg={9}>
@@ -29,9 +30,6 @@ export const Main: FC<Props> = () => {
           </Paper>
         </Grid>
       </Grid>
-      <Box pt={4}>
-        <Copyright />
-      </Box>
-    </Container>
+    </Page>
   );
 };
