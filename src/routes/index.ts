@@ -67,6 +67,30 @@ export const dashboardRoutes: MyRouteProps[] = [
     private: true
   },
   {
+    name: 'categories.create',
+    label: 'Adicionar categorias',
+    path: '/dashboard/categorias/add',
+    component: Categories,
+    exact: true,
+    private: true
+  },
+  {
+    name: 'categories.edit',
+    label: 'Editar categorias',
+    path: '/dashboard/categorias/:id/edit',
+    component: Categories,
+    exact: true,
+    private: true
+  },
+  {
+    name: 'categories.edit',
+    label: 'Editar categorias',
+    path: '/dashboard/categorias/:id/edit/:name',
+    component: Categories,
+    exact: true,
+    private: true
+  },
+  {
     name: '404',
     label: '404',
     path: '*',

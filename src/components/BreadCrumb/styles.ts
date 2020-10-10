@@ -2,17 +2,15 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      display: 'flex',
-      flexDirection: 'column',
-      width: 360,
-    },
-    lists: {
-      backgroundColor: theme.palette.background.paper,
-      marginTop: theme.spacing(1),
-    },
-    nested: {
-      paddingLeft: theme.spacing(4),
-    },
+    linkRouter: {
+      color: "#4db5ab",
+
+      "&:focus, &active": {
+        color: "#4db5ab"
+      },
+      "&:hover": {
+        color: "#055a52"
+      }
+    }
   }),
 );
