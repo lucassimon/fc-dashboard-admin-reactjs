@@ -2,7 +2,7 @@ import { Box, Container, Typography } from '@material-ui/core';
 import React, { FC } from 'react';
 import { Copyright } from '../Copyright';
 import { useStyles } from './styles';
-
+import RouterBreadcrumbs from '../../components/BreadCrumb';
 interface Props {
   title: string
 };
@@ -18,6 +18,7 @@ export const Page:FC<Props> = ({ title, children }) => {
       >
         {title}
       </Typography>
+      <RouterBreadcrumbs />
       {children}
       <Box pt={4}>
         <Copyright />

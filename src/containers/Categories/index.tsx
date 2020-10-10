@@ -9,6 +9,7 @@ export const Categories: FC<Props> = () => {
   const classes = useStyles()
   return (
     <Page title="Categorias">
+      Minhas Categorias
     </Page>
   );
 };

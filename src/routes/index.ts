@@ -53,7 +53,7 @@ export const dashboardRoutes: MyRouteProps[] = [
   {
     name: 'dashboard',
     label: 'Dashboard',
-    path: '/dashboard/',
+    path: '/dashboard',
     component: Main,
     exact: true,
     private: false
