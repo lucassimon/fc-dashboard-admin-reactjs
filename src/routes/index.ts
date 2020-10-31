@@ -16,11 +16,26 @@ export interface MyRouteProps extends RouteProps {
   private: boolean
 }
 
+export const paths = {
+  "sign-in": "/",
+  "forgot-password": "/forgot-password",
+  "dashboard": "/dashboard",
+  "categories.list": "/dashboard/categorias",
+  "categories.create": "/dashboard/categorias/add",
+  "categories.edit": "/dashboard/categorias/:id/edit",
+  "cast-members.list": "/dashboard/membros",
+  "cast-members.create": "/dashboard/membros/add",
+  "cast-members.edit": "/dashboard/membros/:id/edit",
+  "genres.list": "/dashboard/generos",
+  "genres.create": "/dashboard/generos/add",
+  "genres.edit": "/dashboard/generos/:id/edit",
+}
+
 export const mainRoutes: MyRouteProps[] = [
   {
     name: 'sign-in',
     label: 'Sign In',
-    path: '/',
+    path: paths['sign-in'],
     component: SignIn,
     exact: true,
     private: false
@@ -28,7 +43,7 @@ export const mainRoutes: MyRouteProps[] = [
   {
     name: 'forgot-password',
     label: 'Forgot Password',
-    path: '/forgot-password',
+    path: paths['forgot-password'],
     component: ForgotPassword,
     exact: true,
     private: false
@@ -36,7 +51,7 @@ export const mainRoutes: MyRouteProps[] = [
   {
     name: 'dashboard',
     label: 'Dashboard',
-    path: '/dashboard',
+    path: paths.dashboard,
     component: Dashboard,
     exact: false,
     private: false
@@ -55,7 +70,7 @@ export const dashboardRoutes: MyRouteProps[] = [
   {
     name: 'dashboard',
     label: 'Dashboard',
-    path: '/dashboard',
+    path: paths.dashboard,
     component: Main,
     exact: true,
     private: false
@@ -63,7 +78,7 @@ export const dashboardRoutes: MyRouteProps[] = [
   {
     name: 'categories.list',
     label: 'Categorias',
-    path: '/dashboard/categorias',
+    path: paths['categories.list'],
     component: CategoriesList,
     exact: true,
     private: true
@@ -71,7 +86,7 @@ export const dashboardRoutes: MyRouteProps[] = [
   {
     name: 'categories.create',
     label: 'Adicionar categorias',
-    path: '/dashboard/categorias/add',
+    path: paths['categories.create'],
     component: CategoriesAdd,
     exact: true,
     private: true
@@ -79,7 +94,7 @@ export const dashboardRoutes: MyRouteProps[] = [
   {
     name: 'categories.edit',
     label: 'Editar categorias',
-    path: '/dashboard/categorias/:id/edit',
+    path: paths['categories.edit'],
     component: CategoriesEdit,
     exact: true,
     private: true
@@ -87,7 +102,7 @@ export const dashboardRoutes: MyRouteProps[] = [
   {
     name: 'cast-members.list',
     label: 'Membros',
-    path: '/dashboard/membros',
+    path: paths['cast-members.list'],
     component: CastMembersList,
     exact: true,
     private: true
@@ -95,7 +110,7 @@ export const dashboardRoutes: MyRouteProps[] = [
   {
     name: 'cast-members.create',
     label: 'Adicionar membro',
-    path: '/dashboard/membros/add',
+    path: paths['cast-members.create'],
     component: CastMembersAdd,
     exact: true,
     private: true
@@ -103,7 +118,7 @@ export const dashboardRoutes: MyRouteProps[] = [
   {
     name: 'cast-members.edit',
     label: 'Editar membro',
-    path: '/dashboard/membros/:id/edit',
+    path: paths['cast-members.edit'],
     component: CastMembersList,
     exact: true,
     private: true
@@ -111,7 +126,7 @@ export const dashboardRoutes: MyRouteProps[] = [
   {
     name: 'genres.list',
     label: 'Generos',
-    path: '/dashboard/generos',
+    path: paths['genres.list'],
     component: GenresList,
     exact: true,
     private: true
@@ -119,7 +134,7 @@ export const dashboardRoutes: MyRouteProps[] = [
   {
     name: 'genres.create',
     label: 'Adicionar genero',
-    path: '/dashboard/generos/add',
+    path: paths['genres.create'],
     component: GenresAdd,
     exact: true,
     private: true
@@ -127,7 +142,7 @@ export const dashboardRoutes: MyRouteProps[] = [
   {
     name: 'genres.edit',
     label: 'Editar genero',
-    path: '/dashboard/generos/:id/edit',
+    path: paths['genres.edit'],
     component: GenresEdit,
     exact: true,
     private: true
