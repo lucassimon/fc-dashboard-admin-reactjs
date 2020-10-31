@@ -10,8 +10,8 @@ export const Menu:FC<Props> = () => {
   const listRoutes = [
     'dashboard',
     'categories.list',
-    'categories.create',
-    'categories.edit',
+    'cast-members.list',
+    'genres.list'
   ]
   const menuRoutes = dashboardRoutes.filter(route => listRoutes.includes(route.name))
   const [anchorEl, setAnchorEl] = React.useState(null)

@@ -1,15 +1,15 @@
-import rootAxios from "axios";
+import rootAxios, { AxiosRequestConfig } from "axios";
 
 import { configInterceptors } from "./interceptor";
 
-const baseURL = process.env.REACT_APP_API_BASE_URL;
+const baseURL = process.env.REACT_APP_MICRO_VIDEO_API_URL;
 
-const axios = rootAxios.create({
+const httpVideo = rootAxios.create({
   baseURL,
 });
 
-configInterceptors(axios);
+configInterceptors(httpVideo);
 
 const disableTransform = { headers: { disableTransform: true } };
 
-export { axios, disableTransform };
+export { httpVideo, disableTransform };

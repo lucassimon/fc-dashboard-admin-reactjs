@@ -6,6 +6,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
     paddingBottom: theme.spacing(4),
   },
   title: {
-    color: '#999'
+    color: '#999',
+    paddingBottom: theme.spacing(1),
   }
 }));

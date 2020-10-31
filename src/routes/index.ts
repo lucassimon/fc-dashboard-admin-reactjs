@@ -5,8 +5,10 @@ import { Error404 } from '../containers/Error404';
 import { SignIn } from '../containers/SignIn';
 import { ForgotPassword } from '../containers/ForgotPassword';
 import { Dashboard } from '../containers/Dashboard';
-import { Categories } from '../containers/Categories';
 import { Main } from '../containers/Main';
+import { CategoriesList, CategoriesAdd, CategoriesEdit  } from '../containers/Categories';
+import { CastMembersAdd, CastMembersList } from '../containers/CastMembers';
+import { GenresAdd, GenresList, GenresEdit } from '../containers/Genres';
 
 export interface MyRouteProps extends RouteProps {
   name: string
@@ -60,9 +62,9 @@ export const dashboardRoutes: MyRouteProps[] = [
   },
   {
     name: 'categories.list',
-    label: 'Listar categorias',
+    label: 'Categorias',
     path: '/dashboard/categorias',
-    component: Categories,
+    component: CategoriesList,
     exact: true,
     private: true
   },
@@ -70,7 +72,7 @@ export const dashboardRoutes: MyRouteProps[] = [
     name: 'categories.create',
     label: 'Adicionar categorias',
     path: '/dashboard/categorias/add',
-    component: Categories,
+    component: CategoriesAdd,
     exact: true,
     private: true
   },
@@ -78,15 +80,55 @@ export const dashboardRoutes: MyRouteProps[] = [
     name: 'categories.edit',
     label: 'Editar categorias',
     path: '/dashboard/categorias/:id/edit',
-    component: Categories,
+    component: CategoriesEdit,
     exact: true,
     private: true
   },
   {
-    name: 'categories.edit',
-    label: 'Editar categorias',
-    path: '/dashboard/categorias/:id/edit/:name',
-    component: Categories,
+    name: 'cast-members.list',
+    label: 'Membros',
+    path: '/dashboard/membros',
+    component: CastMembersList,
+    exact: true,
+    private: true
+  },
+  {
+    name: 'cast-members.create',
+    label: 'Adicionar membro',
+    path: '/dashboard/membros/add',
+    component: CastMembersAdd,
+    exact: true,
+    private: true
+  },
+  {
+    name: 'cast-members.edit',
+    label: 'Editar membro',
+    path: '/dashboard/membros/:id/edit',
+    component: CastMembersList,
+    exact: true,
+    private: true
+  },
+  {
+    name: 'genres.list',
+    label: 'Generos',
+    path: '/dashboard/generos',
+    component: GenresList,
+    exact: true,
+    private: true
+  },
+  {
+    name: 'genres.create',
+    label: 'Adicionar genero',
+    path: '/dashboard/generos/add',
+    component: GenresAdd,
+    exact: true,
+    private: true
+  },
+  {
+    name: 'genres.edit',
+    label: 'Editar genero',
+    path: '/dashboard/generos/:id/edit',
+    component: GenresEdit,
     exact: true,
     private: true
   },

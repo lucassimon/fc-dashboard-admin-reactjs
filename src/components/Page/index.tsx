@@ -19,7 +19,9 @@ export const Page:FC<Props> = ({ title, children }) => {
         {title}
       </Typography>
       <RouterBreadcrumbs />
-      {children}
+      <Box paddingTop='1px'>
+        {children}
+      </Box>
       <Box pt={4}>
         <Copyright />
       </Box>

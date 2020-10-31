@@ -7,13 +7,19 @@ import Breadcrumbs from '@material-ui/core/Breadcrumbs'
 import { Route, Link as RouterLink } from 'react-router-dom';
 import RouteParser from 'route-parser'
 import { useStyles } from './styles'
-import { Container } from '@material-ui/core'
+import { Box, Container } from '@material-ui/core'
 
 const breadcrumbNameMap: { [key: string]: string } = {
   '/dashboard': 'Dashboard',
-  '/dashboard/categorias': 'Listar categorias',
+  '/dashboard/categorias': 'Categorias',
   '/dashboard/categorias/add': 'Adicionar categorias',
   '/dashboard/categorias/:id/edit': 'Editar categorias',
+  '/dashboard/generos': 'Generos',
+  '/dashboard/generos/add': 'Adicionar genero',
+  '/dashboard/generos/:id/edit': 'Editar genero',
+  '/dashboard/membros': 'Membros',
+  '/dashboard/membros/add': 'Adicionar membro',
+  '/dashboard/membros/:id/edit': 'Editar membro',
 };
 
 
@@ -64,11 +70,13 @@ export default function RouterBreadcrumbs() {
 
   return (
     <Container>
-      <Route>
-        {
-          ({ location }: { location: Location }) => makeBreadcrumb(location)
-        }
-      </Route>
+      <Box paddingBottom='5px'>
+        <Route>
+          {
+            ({ location }: { location: Location }) => makeBreadcrumb(location)
+          }
+        </Route>'
+      </Box>
     </Container>
   );
 }
