@@ -3,6 +3,7 @@ import { Box } from '@material-ui/core';
 import React, { FC } from 'react';
 
 import { Page } from '../../../components/Page';
+import { GenreAddForm } from './GenreAddForm';
 import { useStyles } from './styles';
 
 
@@ -13,7 +14,7 @@ export const GenresAdd: FC<Props> = () => {
   return (
     <Page title="Genero">
       <Box>
-        Formulario
+        <GenreAddForm />
       </Box>
     </Page>
   );

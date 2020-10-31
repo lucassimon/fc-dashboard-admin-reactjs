@@ -13,6 +13,7 @@ import { httpVideo } from '../../../services';
 import { useStyles } from './styles';
 import { CastMemberService } from '../../../services/cast-member-service';
 import { CastMember } from '../../../common';
+import { paths } from '../../../routes';
 
 const columns: MUIDataTableColumn[] = [
   {
@@ -49,7 +50,11 @@ const columns: MUIDataTableColumn[] = [
       sort: true,
       searchable: false,
       customBodyRender: (value, tableMeta, updateValue) => {
-        return <span>{format(parseISO(value), 'dd/MM/yyyy')}</span>
+        if (value) {
+          return <span>{format(parseISO(value), 'dd/MM/yyyy')}</span>
+        }
+
+        return ''
       }
     }
   },
@@ -75,8 +80,7 @@ export const CastMembersList: FC<Props> = () => {
           title="Adicionar membro"
           size="small"
           component={Link}
-          to='/dashboard/membros/add'
-
+          to={paths['cast-members.create']}
         >
           <AddIcon />
         </Fab>
