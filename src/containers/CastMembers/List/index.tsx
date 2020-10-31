@@ -11,6 +11,9 @@ import { Page } from '../../../components/Page';
 import { Table } from '../../../components/Tables';
 import { httpVideo } from '../../../services';
 import { useStyles } from './styles';
+import { CastMemberService } from '../../../services/cast-member-service';
+import { CastMember } from '../../../common';
+import { paths } from '../../../routes';
 
 const columns: MUIDataTableColumn[] = [
   {
@@ -47,7 +50,11 @@ const columns: MUIDataTableColumn[] = [
       sort: true,
       searchable: false,
       customBodyRender: (value, tableMeta, updateValue) => {
-        return <span>{format(parseISO(value), 'dd/MM/yyyy')}</span>
+        if (value) {
+          return <span>{format(parseISO(value), 'dd/MM/yyyy')}</span>
+        }
+
+        return ''
       }
     }
   },
@@ -59,12 +66,11 @@ interface Props {};
 export const CastMembersList: FC<Props> = () => {
   const classes = useStyles()
 
-  const [data, setData] = React.useState([]);
+  const [data, setData] = React.useState<CastMember[]>([]);
 
   React.useEffect(() => {
-    httpVideo.get('cast-members').then(
-      response => setData(response.data)
-    )
+    const http = new CastMemberService(httpVideo, 'cast-members')
+    http.list<CastMember[]>().then(({data}) => setData(data))
   }, [])
 
   return (
@@ -74,8 +80,7 @@ export const CastMembersList: FC<Props> = () => {
           title="Adicionar membro"
           size="small"
           component={Link}
-          to='/dashboard/membros/add'
-
+          to={paths['cast-members.create']}
         >
           <AddIcon />
         </Fab>

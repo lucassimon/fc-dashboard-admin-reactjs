@@ -3,6 +3,7 @@ import { Box } from '@material-ui/core';
 import React, { FC } from 'react';
 
 import { Page } from '../../../components/Page';
+import { CastMemberAddForm } from './CastMemberAddForm';
 import { useStyles } from './styles';
 
 
@@ -13,7 +14,7 @@ export const CastMembersAdd: FC<Props> = () => {
   return (
     <Page title="Adicionar membro">
       <Box>
-        Formulario
+        <CastMemberAddForm />
       </Box>
     </Page>
   );

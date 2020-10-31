@@ -11,7 +11,9 @@ import { Page } from '../../../components/Page';
 import { Table } from '../../../components/Tables';
 import { httpVideo } from '../../../services';
 import { useStyles } from './styles';
-import { Category } from '../../../common';
+import { Category, Genre } from '../../../common';
+import { GenreService } from '../../../services/genre-service';
+import { paths } from '../../../routes';
 
 const columns: MUIDataTableColumn[] = [
   {
@@ -55,7 +57,10 @@ const columns: MUIDataTableColumn[] = [
       sort: true,
       searchable: false,
       customBodyRender: (value, tableMeta, updateValue) => {
-        return <span>{format(parseISO(value), 'dd/MM/yyyy')}</span>
+        if (value) {
+          return <span>{format(parseISO(value), 'dd/MM/yyyy')}</span>
+        }
+        return ''
       }
     }
   },
@@ -67,12 +72,11 @@ interface Props {};
 export const GenresList: FC<Props> = () => {
   const classes = useStyles()
 
-  const [data, setData] = React.useState([]);
+  const [data, setData] = React.useState<Genre[]>([]);
 
   React.useEffect(() => {
-    httpVideo.get('genres').then(
-      response => setData(response.data)
-    )
+    const http = new GenreService(httpVideo, 'genres')
+    http.list<Genre[]>().then(({data}) => setData(data))
   }, [])
 
   return (
@@ -82,8 +86,7 @@ export const GenresList: FC<Props> = () => {
           title="Adicionar genero"
           size="small"
           component={Link}
-          to='/dashboard/generos/add'
-
+          to={paths['genres.create']}
         >
           <AddIcon />
         </Fab>
