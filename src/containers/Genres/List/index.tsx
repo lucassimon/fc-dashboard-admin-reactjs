@@ -11,7 +11,8 @@ import { Page } from '../../../components/Page';
 import { Table } from '../../../components/Tables';
 import { httpVideo } from '../../../services';
 import { useStyles } from './styles';
-import { Category } from '../../../common';
+import { Category, Genre } from '../../../common';
+import { GenreService } from '../../../services/genre-service';
 
 const columns: MUIDataTableColumn[] = [
   {
@@ -67,12 +68,11 @@ interface Props {};
 export const GenresList: FC<Props> = () => {
   const classes = useStyles()
 
-  const [data, setData] = React.useState([]);
+  const [data, setData] = React.useState<Genre[]>([]);
 
   React.useEffect(() => {
-    httpVideo.get('genres').then(
-      response => setData(response.data)
-    )
+    const http = new GenreService(httpVideo, 'genres')
+    http.list<Genre[]>().then(({data}) => setData(data))
   }, [])
 
   return (

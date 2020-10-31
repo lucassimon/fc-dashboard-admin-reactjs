@@ -1,3 +1,10 @@
+export interface CastMember {
+  id: number;
+  name: string;
+  type: number;
+  created_at: string;
+}
+
 export interface Category {
   id: number;
   name: string;

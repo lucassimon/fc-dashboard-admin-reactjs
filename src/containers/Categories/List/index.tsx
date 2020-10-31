@@ -11,6 +11,8 @@ import { Page } from '../../../components/Page';
 import { Table } from '../../../components/Tables';
 import { httpVideo } from '../../../services';
 import { useStyles } from './styles';
+import { CategoryService } from '../../../services/category-service';
+import { Category } from '../../../common';
 
 const columns: MUIDataTableColumn[] = [
   {
@@ -53,12 +55,11 @@ interface Props {};
 export const CategoriesList: FC<Props> = () => {
   const classes = useStyles()
 
-  const [data, setData] = React.useState([]);
+  const [data, setData] = React.useState<Category[]>([]);
 
   React.useEffect(() => {
-    httpVideo.get('categories').then(
-      response => setData(response.data)
-    )
+    const http = new CategoryService(httpVideo, 'categories')
+    http.list<Category[]>().then(({data}) => setData(data))
   }, [])
 
   return (

@@ -11,6 +11,8 @@ import { Page } from '../../../components/Page';
 import { Table } from '../../../components/Tables';
 import { httpVideo } from '../../../services';
 import { useStyles } from './styles';
+import { CastMemberService } from '../../../services/cast-member-service';
+import { CastMember } from '../../../common';
 
 const columns: MUIDataTableColumn[] = [
   {
@@ -59,12 +61,11 @@ interface Props {};
 export const CastMembersList: FC<Props> = () => {
   const classes = useStyles()
 
-  const [data, setData] = React.useState([]);
+  const [data, setData] = React.useState<CastMember[]>([]);
 
   React.useEffect(() => {
-    httpVideo.get('cast-members').then(
-      response => setData(response.data)
-    )
+    const http = new CastMemberService(httpVideo, 'cast-members')
+    http.list<CastMember[]>().then(({data}) => setData(data))
   }, [])
 
   return (
